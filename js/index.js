@@ -1,6 +1,6 @@
 const debug = false
 
-  // Create some randomized data.
+// Create some randomized data.
 var data = []
 var simplex = new SimplexNoise();
 
@@ -9,7 +9,7 @@ var dims = { x: 35, y: 25, z: 40 };
 for(var x = 0; x < dims.x; x++) {
     for(var y = 0; y < dims.y; y++) {
         for(var z = 0; z < dims.z; z++) {
-            data.push({'x': x, 'y': y, 'z': z, 'v': simplex.noise3D(x/dims.x, y/dims.y, z/dims.z) + 2})
+          data.push({'x': x, 'y': y, 'z': z, 'v': simplex.noise3D(x/dims.x, y/dims.y, z/dims.z) + 2})
         }
     }
 }
@@ -38,9 +38,9 @@ var scale_margin = {
         bottom: svg_height*0.2,
         left: 5
     },
-    scale_width = +svg_width - scale_margin.left - scale_margin.right,
-    scale_height = +svg_height - scale_margin.top - scale_margin.bottom,
-    g = svg.append("g").attr("transform", "translate(" + scale_margin.left + "," + scale_margin.top + ")");
+scale_width = +svg_width - scale_margin.left - scale_margin.right,
+scale_height = +svg_height - scale_margin.top - scale_margin.bottom,
+g = svg.append("g").attr("transform", "translate(" + scale_margin.left + "," + scale_margin.top + ")");
 
 var xScale = d3.randomNormal(scale_height / 2, scale_height / 8),
     yScale = d3.scaleLinear().range([scale_height, 0]).domain([minVal, maxVal])
@@ -70,7 +70,7 @@ const plasma = [
 const palette = inferno
 
 function toHex(d) {
-    return  ("0"+(Number(d).toString(16))).slice(-2).toUpperCase()
+  return ("0"+(Number(d).toString(16))).slice(-2).toUpperCase()
 }
 
 var html_palette = _.map(palette, function(x) {
@@ -81,12 +81,12 @@ var html_palette = _.map(palette, function(x) {
 })
 
 var linearGradient = svg.append("defs")
-                  .append("linearGradient")
-                  .attr("id", "linear-gradient")
-                  .attr("x1", "0%")
-                  .attr("y1", "100%")
-                  .attr("x2", "0%")
-                  .attr("y2", "0%")
+                       .append("linearGradient")
+                       .attr("id", "linear-gradient")
+                       .attr("x1", "0%")
+                       .attr("y1", "100%")
+                       .attr("x2", "0%")
+                       .attr("y2", "0%")
 
 var getStopColor = function(d) {return html_palette[Math.round(d/100*(html_palette.length-1))]}
 
