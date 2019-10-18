@@ -1,3 +1,8 @@
+import * as glmatrix from 'gl-matrix'
+import 'lodash'
+import * as d3 from 'd3'
+import SimplexNoise from 'simplex-noise'
+
 const debug = false
 
 // Create some randomized data.
@@ -704,51 +709,51 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
   const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight
   const zNear = 0.1
   const zFar = dims.x*dims.y*dims.z
-  const projectionMatrix = mat4.create()
+  const projectionMatrix = glmatrix.mat4.create()
 
   // note: glmatrix.js always has the first argument
   // as the destination to receive the result.
-  mat4.perspective(projectionMatrix,
-                   fieldOfView,
-                   aspect,
-                   zNear,
-                   zFar)
+  glmatrix.mat4.perspective(projectionMatrix,
+                            fieldOfView,
+                            aspect,
+                            zNear,
+                            zFar)
 
   // Set the drawing position to the "identity" point, which is
   // the center of the scene.
-  const modelViewMatrix = mat4.create()
+  const modelViewMatrix = glmatrix.mat4.create()
 
   // Now move the drawing position a bit to where we want to
   // start drawing the square.
 
   
   // move
-  mat4.translate(modelViewMatrix,     // destination matrix
-                 modelViewMatrix,     // matrix to translate
-                 [0, 0, distance])  // amount to translate
+  glmatrix.mat4.translate(modelViewMatrix,     // destination matrix
+                          modelViewMatrix,     // matrix to translate
+                          [0, 0, distance])  // amount to translate
   // Look at from above
-  mat4.rotate(modelViewMatrix,  // destination matrix
-              modelViewMatrix,  // matrix to rotate
-              cubeRotation.y,     // amount to rotate in radians
-              [1, 0, 0])       // axis to rotate around (X)
+  glmatrix.mat4.rotate(modelViewMatrix,  // destination matrix
+                       modelViewMatrix,  // matrix to rotate
+                       cubeRotation.y,     // amount to rotate in radians
+                       [1, 0, 0])       // axis to rotate around (X)
   // Spin
   
-  mat4.rotate(modelViewMatrix,  // destination matrix
-              modelViewMatrix,  // matrix to rotate
-              cubeRotation.x,// amount to rotate in radians
-              [0, 1, 0])       // axis to rotate around (X)
+  glmatrix.mat4.rotate(modelViewMatrix,  // destination matrix
+                       modelViewMatrix,  // matrix to rotate
+                       cubeRotation.x,// amount to rotate in radians
+                       [0, 1, 0])       // axis to rotate around (X)
   // Update the rotation for the next draw
   
   cubeRotation.x += rotationVelocity.x
   
   // Center
-  mat4.translate(modelViewMatrix,     // destination matrix
-                 modelViewMatrix,     // matrix to translate
-                 [-dims.x/2 + 0.5, -dims.y/2 + 0.5, -dims.z/2 + 0.5])  // amount to translate
+  glmatrix.mat4.translate(modelViewMatrix,     // destination matrix
+                          modelViewMatrix,     // matrix to translate
+                          [-dims.x/2 + 0.5, -dims.y/2 + 0.5, -dims.z/2 + 0.5])  // amount to translate
 
-  const normalMatrix = mat4.create();
-  mat4.invert(normalMatrix, modelViewMatrix);
-  mat4.transpose(normalMatrix, normalMatrix);
+  const normalMatrix = glmatrix.mat4.create();
+  glmatrix.mat4.invert(normalMatrix, modelViewMatrix);
+  glmatrix.mat4.transpose(normalMatrix, normalMatrix);
 
   gl.useProgram(programInfo.program)
   
