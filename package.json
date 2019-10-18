@@ -1,0 +1,17 @@
+{
+  "name": "voxelgram",
+  "version": "1.0.0",
+  "description": "An interactive 3D heatmap.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keeler/voxelgram.git"
+  },
+  "author": "Keeler Russell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keeler/voxelgram/issues"
+  },
+  "homepage": "https://github.com/keeler/voxelgram#readme"
+}
