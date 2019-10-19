@@ -4,22 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <title>voxelgram</title>
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-<canvas id="glcanvas" id="voxelgram"></canvas>
-<div id="control-panel">
+  <canvas id="glcanvas" id="voxelgram"></canvas>
+
+  <div id="control-panel">
     <div style="color:white">fps: <span id="fps"></span></div>
     <br/>
     <svg id="colormap-brush"></svg>
-</div>
-<div id="help-panel">
-   <div style="display: table; height: 100%; overflow: hidden;">
-     <div style="display: table-cell; vertical-align: middle;">
-       <div>
-         <h2>Controls</h2>
-         <h3>Voxelgram</h3>
+  </div>
+
+  <div id="help-panel">
+    <div style="display: table; height: 100%; overflow: hidden;">
+      <div style="display: table-cell; vertical-align: middle;">
+        <div>
+          <h2>Controls</h2>
+          <h3>Voxelgram</h3>
           <ul>
             <li>Drag to rotate visualization.</li>
             <li>Arrow keys snap to rotation.</li>
@@ -29,11 +31,12 @@
             <li>Drag handles to filter data.</li>
             <li>Double click to invert filter.</li>
           </ul>
-       </div>
-     </div>
-   </div>
-</div>
-<script  src="js/index.js"></script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/index.js"></script>
 </body>
 
 </html>
