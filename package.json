@@ -4,7 +4,11 @@
   "description": "An interactive 3D heatmap.",
   "main": "index.js",
   "scripts": {
+    "watch": "watch 'npm run build' src",
+    "serve": "http-server ./build",
     "build": "rm -rf build && webpack --mode development --progress --hide-modules",
+    "watch:prod": "watch 'npm run build:prod' src",
+    "serve:prod": "http-server ./release/build",
     "build:prod": "rm -rf release/build && webpack --mode production --progress --hide-modules",
     "clean": "rm -rf build release"
   },
@@ -20,6 +24,8 @@
   "homepage": "https://github.com/keeler/voxelgram#readme",
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.4",
+    "http-server": "^0.11.1",
+    "watch": "^1.0.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-merge": "^4.2.2"
