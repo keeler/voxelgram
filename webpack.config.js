@@ -18,7 +18,7 @@ function multipleCopy(...paths) {
 }
 
 const config = {
-  context: path.resolve(__dirname, './'),
+  context: path.resolve(__dirname, './src'),
   entry: {
     'index': './js/index.js'
   },
