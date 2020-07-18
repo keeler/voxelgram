@@ -33,7 +33,7 @@
   "dependencies": {
     "d3": "^4.11.0",
     "gl-matrix": "^2.4.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "simplex-noise": "^2.4.0"
   }
 }
