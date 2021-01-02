@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - voxelgram</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Ideas
+-- Axis labels that rotate with the chart.
+-- Framerate dips noticeably when dimensions
+   are large (150x150x150 = 3.3 million voxels).
+   Cursory profiling in Chrome seems to show it's
+   GPU bound. Since it's periodic maybe it's a
+   memory thing, GPU has to swap out some data
+   for the rest?. Could try lowering memory for
+   GPU: backface culling on the CPU would halve
+   the data the GPU needs (since only 3 of the 6
+   faces are visible at once).
+-- Slice a plane (or few?) out of the volume, rotate it, allow filtering, etc. BRUSH SLIDERS FOR ALL THE DIMENSIONSSS
+-- Label the Brush slider
+-- Animate through successive planes along any one dimension, and in reverse, allow filtering.
+-- UI to change dimensions.
+-- UI to change color scale.
+-- UI to load custom dataset.
+
+-->
+<canvas id="glcanvas" id="voxelgram"></canvas>
+<div id="control-panel">
+    <div style="color:white">fps: <span id="fps"></span></div>
+    <br/>
+      
+    <svg id="colormap-brush"></svg>
+</div>
+<div id="help-panel">
+   <div style="display: table; height: 100%; overflow: hidden;">
+     <div style="display: table-cell; vertical-align: middle;">
+       <div>
+         <h2>Controls</h2>
+         <h3>Voxelgram</h3>
+          <ul>
+            <li>Drag to rotate visualization.</li>
+            <li>Arrow keys snap to rotation.</li>
+          </ul>
+          <h3>Color Scale</h3>
+          <ul>
+            <li>Drag handles to filter data.</li>
+            <li>Double click to invert filter.</li>
+          </ul>
+       </div>
+     </div>
+   </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.4.0/gl-matrix-min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
