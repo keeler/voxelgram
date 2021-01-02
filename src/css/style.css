@@ -1,0 +1,45 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.axis-white text {
+	fill: white;
+}
+
+.axis-white line {
+  stroke: white;
+}
+.axis-white path {
+  stroke: white;
+}
+
+#voxelgram {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	display: block;
+	z-index: 1;
+}
+
+#colormap-brush {
+}
+
+#control-panel {
+	width: 15vw;
+	height: 100vh;
+	position: absolute;
+	display: block;
+    left: 0px;
+    top: 0px;
+}
+
+#help-panel {
+	width: 15vw;
+	height: 100vh;
+  color:white;
+	position: absolute;
+	display: block;
+  right: 0px;
+  top: 0px;
+}
